@@ -1,0 +1,28 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class SalaryTransformation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        IntStream.range(0, n)
+                .map(i -> sc.nextInt())
+                .map(salary -> salary + salary / 10)
+                .forEach(salary -> System.out.print(salary + " "));
+
+        sc.close();
+    }
+}
+
+
+Output:-
+
+70000
+25000
+27500   
+40000
+44000  
+60000
+66000 
