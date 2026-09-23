@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class RideSharing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            String type = sc.next();
+            int distance = sc.nextInt();
+
+            try {
+                if (distance <= 0)
+                    throw new Exception("Invalid booking");
+
+                int fare = 0;
+
+                switch (type) {
+                    case "Bike":
+                        fare = distance * 5;
+                        break;
+
+                    case "Auto":
+                        fare = distance * 12;
+                        break;
+
+                    case "Cab":
+                        fare = distance * 12;
+                        break;
+
+                    default:
+                        throw new Exception("Invalid ride type");
+                }
+
+                System.out.println(fare);
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+
+
+OUTPUT:-
+
+3
+Bike 10
+50
+cab 15
+Invalid ride type
+Auto 8
+96
