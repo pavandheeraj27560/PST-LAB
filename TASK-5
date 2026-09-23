@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class BankAccount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int balance = 0;
+
+        for (int i = 0; i < n; i++) {
+            String operation = sc.next();
+            int amount = sc.nextInt();
+
+            if (operation.equals("Deposit")) {
+                balance = balance + amount;
+            } else {
+                balance = balance - amount;
+            }
+        }
+
+        System.out.println(balance);
+    }
+}
+
+
+OUTPUT:-
+
+3
+Deposit 5000
+withdraw 2000
+Deposit 1000
+4000
