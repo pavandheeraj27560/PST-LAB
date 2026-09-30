@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Traffic {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt(), m = s.nextInt();
+
+        ArrayList<ArrayList<Integer>> g = new ArrayList<>();
+        for (int i = 0; i <= n; i++) g.add(new ArrayList<>());
+
+        while (m-- > 0) {
+            int u = s.nextInt(), v = s.nextInt();
+            g.get(u).add(v);
+            g.get(v).add(u);
+        }
+
+        int src = s.nextInt(), dest = s.nextInt();
+        boolean[] vis = new boolean[n + 1];
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add(src);
+        vis[src] = true;
+
+        while (!q.isEmpty()) {
+            int u = q.poll();
+            if (u == dest) {
+                System.out.println("YES");
+                return;
+            }
+
+            for (int v : g.get(u))
+                if (!vis[v]) {
+                    vis[v] = true;
+                    q.add(v);
+                }
+        }
+
+        System.out.println("NO");
+    }
+}
