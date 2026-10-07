@@ -1,0 +1,60 @@
+import java.io.*;
+import java.util.*;
+
+public class SecureAuthentication {
+
+    public static void main(String[] args) throws Exception {
+
+        BufferedReader br = new BufferedReader(
+            new InputStreamReader(System.in)
+        );
+
+        int n = Integer.parseInt(br.readLine());
+
+        Map<String, String> user = new HashMap<>();
+
+        user.put("admin", "admin123");
+        user.put("User", "User123");
+        user.put("Student", "Student123");
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+
+            String[] input = br.readLine().split(" ", 2);
+
+            String username = input[0];
+            String password = input.length > 1 ? input[1] : "";
+
+            if (username.length() < 3 || username.length() > 20 ||
+                password.length() < 6 || password.length() > 20) {
+
+                result.append("FAILURE\n");
+                continue;
+            }
+
+            if (user.containsKey(username) &&
+                user.get(username).equals(password)) {
+
+                result.append("SUCCESS\n");
+
+            } else {
+
+                result.append("FAILURE\n");
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+
+
+OUTPUT:-
+
+3
+admin admin123
+ab 123
+User pass
+SUCCESS
+FAILURE
+FAILURE
