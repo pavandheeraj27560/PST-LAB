@@ -1,0 +1,36 @@
+class Calculator {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int divide(int a, int b) {
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+
+        Calculator calc = new Calculator();
+
+        int expectedAddition = 30;
+        int actualAddition = calc.add(10, 20);
+
+        int expectedDivision = 5;
+        int actualDivision = calc.divide(10, 2);
+
+        if (expectedAddition == actualAddition &&
+            expectedDivision == actualDivision) {
+
+            System.out.println("Test Passed");
+
+        } else {
+
+            System.out.println("Test Failed");
+        }
+    }
+}
+
+
+OUTPUT:-
+
+Test Passed
