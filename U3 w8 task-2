@@ -1,0 +1,32 @@
+class Vehicle {
+    String define() {
+        return "a vehicle with pedals.";
+    }
+}
+
+class Cycle extends Vehicle {
+    String define() {
+        return "a cycle with pedals.";
+    }
+
+    String ancestor() {
+        return super.define();
+    }
+}
+
+class Motorcycle extends Cycle {
+    String define() {
+        return "a cycle with an engine.";
+    }
+
+    Motorcycle() {
+        System.out.println("Hello I am a motorcycle, I am " + define());
+        System.out.println("My ancestor is a cycle who is " + ancestor());
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Motorcycle M = new Motorcycle();
+    }
+}
